@@ -1,23 +1,39 @@
 # Project: Claude Code for Everyone
 
 ## Purpose
-A documentation project to help non-technical users learn and use Claude Code effectively.
+A zero-friction installer and guide for non-technical users to use Claude Code.
 
-## Audience
-Complete beginners with little to no programming experience.
+## Core Philosophy
+- **Hide all technical complexity** - Users should never see npm, Node.js, or terminal commands beyond the initial install line
+- **One-line installation** - Copy, paste, done
+- **Plain language only** - No jargon, no assumptions about prior knowledge
 
-## Writing Style
-- Use plain, simple language
-- Avoid jargon; explain technical terms when necessary
-- Include concrete examples
-- Be encouraging and patient in tone
+## Target Audience
+Complete beginners who may feel anxious about anything "technical."
+Example: Someone's spouse who has never used a terminal before.
 
-## Structure
-- `/docs` - All guides and tutorials
-- `README.md` - Project overview and navigation
+## Project Structure
+```
+├── README.md          # Two-step quick start
+├── install.sh         # Mac/Linux installer (handles everything)
+├── install.ps1        # Windows PowerShell installer
+├── CLAUDE.md          # This file
+└── docs/
+    ├── troubleshooting.md  # Common problems, plain-English solutions
+    └── examples.md         # Copy-paste prompts to try
+```
 
-## Content Guidelines
-- Each guide should be self-contained when possible
-- Use step-by-step instructions with expected outputs
-- Include "What could go wrong" sections for troubleshooting
-- Keep guides focused on one topic at a time
+## Writing Guidelines
+- Maximum simplicity
+- No technical terms without explanation
+- Visual instructions when possible (keyboard shortcuts, button names)
+- Reassuring tone - mistakes are okay, nothing will break permanently
+
+## Installer Goals
+The install scripts should:
+1. Detect the operating system
+2. Install Node.js silently if missing
+3. Install Claude Code
+4. Create simple shortcuts (like `ai` command)
+5. Give clear success/failure messages
+6. Never require user to understand what's happening "under the hood"

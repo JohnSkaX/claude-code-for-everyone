@@ -1,30 +1,48 @@
 # Claude Code for Everyone
 
-A beginner-friendly guide to using Claude Code for people who aren't developers.
+Use Claude AI to build things on your computer - no technical skills required.
 
-## What is Claude Code?
+## Quick Start (2 minutes)
 
-Claude Code is a command-line tool that lets you work with Claude AI to build software, automate tasks, and learn programming concepts - even if you've never written code before.
+### Step 1: Open Terminal
 
-## Who is this for?
+**On Mac:** Press `Cmd + Space`, type `Terminal`, press Enter
 
-- People curious about AI-assisted development
-- Non-technical folks who want to build simple tools
-- Anyone intimidated by programming but willing to try
+**On Windows:** Press `Win + X`, click "Terminal" or "PowerShell"
 
-## Guides
+**On Linux:** Press `Ctrl + Alt + T`
 
-1. [Getting Started](docs/getting-started.md) - Installation and first steps
-2. [Your First Project](docs/first-project.md) - Build something simple
-3. [Common Tasks](docs/common-tasks.md) - Things you can do with Claude Code
-4. [Tips & Tricks](docs/tips-and-tricks.md) - Make the most of your experience
+### Step 2: Copy and Paste This Line
 
-## Philosophy
+**On Mac or Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/JohnSkaX/claude-code-for-everyone/main/install.sh | bash
+```
 
-- **Start simple** - You don't need to understand everything at once
-- **Ask questions** - Claude is here to help, not judge
-- **Learn by doing** - The best way to learn is to try things
+**On Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/JohnSkaX/claude-code-for-everyone/main/install.ps1 | iex
+```
 
-## Contributing
+That's it. The installer handles everything else.
 
-This project is a work in progress. Suggestions and contributions welcome!
+---
+
+## What Can You Do With Claude Code?
+
+Once installed, just tell Claude what you want in plain English:
+
+- "Organize my messy Downloads folder"
+- "Create a simple budget tracker"
+- "Help me rename all my vacation photos"
+- "Build a personal website for me"
+
+## Need Help?
+
+See [Troubleshooting](docs/troubleshooting.md) if something goes wrong.
+
+See [Examples](docs/examples.md) for ideas of what you can build.
+
+## About
+
+This project makes Claude Code accessible to everyone, regardless of technical background. No coding experience needed.
