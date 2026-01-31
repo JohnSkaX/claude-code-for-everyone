@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code for Everyone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            text-align: left;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .step {
+            margin-bottom: 25px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .step-content {
+            margin-left: 44px;
+            margin-top: 8px;
+            color: #555;
+        }
+
+        .os-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .os-tab {
+            padding: 8px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .os-tab:hover, .os-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .code-block {
+            background: #1a1a2e;
+            color: #a5d6ff;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #5a6fd6;
+        }
+
+        .copy-btn.copied {
+            background: #22c55e;
+        }
+
+        .reassurance {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px 20px;
+            margin-top: 30px;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+
+        .reassurance strong {
+            color: #2e7d32;
+        }
+
+        .examples {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .examples h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .example-card {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #d4deff;
+        }
+
+        .example-card p {
+            color: #444;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .keyboard {
+            display: inline-block;
+            background: #eee;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .tagline { font-size: 1.1rem; }
+            .hero { padding: 40px 20px; }
+            .os-tabs { flex-direction: column; }
+            .code-block { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Claude Code for Everyone</h1>
+            <p class="tagline">Build things with AI. No coding skills needed.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <span class="step-title">Open Terminal</span>
+                    <div class="step-content">
+                        <strong>Mac:</strong> Press <span class="keyboard">Cmd</span> + <span class="keyboard">Space</span>, type "Terminal", press Enter<br>
+                        <strong>Windows:</strong> Press <span class="keyboard">Win</span> + <span class="keyboard">X</span>, click "Terminal"<br>
+                        <strong>Linux:</strong> Press <span class="keyboard">Ctrl</span> + <span class="keyboard">Alt</span> + <span class="keyboard">T</span>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span class="step-title">Copy & Paste This Command</span>
+                    <div class="step-content">
+                        <div class="os-tabs">
+                            <button class="os-tab active" onclick="showOS('mac')">Mac / Linux</button>
+                            <button class="os-tab" onclick="showOS('windows')">Windows</button>
+                        </div>
+                        <div id="mac-command" class="code-block">
+                            curl -fsSL https://raw.githubusercontent.com/JohnSkaX/claude-code-for-everyone/main/install.sh | bash
+                            <button class="copy-btn" onclick="copyCommand('mac')">Copy</button>
+                        </div>
+                        <div id="windows-command" class="code-block" style="display: none;">
+                            irm https://raw.githubusercontent.com/JohnSkaX/claude-code-for-everyone/main/install.ps1 | iex
+                            <button class="copy-btn" onclick="copyCommand('windows')">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span class="step-title">That's It!</span>
+                    <div class="step-content">
+                        The installer handles everything. When it's done, type <strong>claude</strong> to start.
+                    </div>
+                </div>
+            </div>
+
+            <div class="reassurance">
+                <strong>No coding experience?</strong> That's the point. Just tell Claude what you want in plain English, like "organize my messy Downloads folder" or "create a simple budget tracker."
+            </div>
+
+            <div class="examples">
+                <h2>Things You Can Ask Claude To Do</h2>
+                <div class="example-grid">
+                    <div class="example-card">
+                        <p>"Organize my Downloads folder"</p>
+                    </div>
+                    <div class="example-card">
+                        <p>"Rename all my vacation photos"</p>
+                    </div>
+                    <div class="example-card">
+                        <p>"Create a simple to-do list"</p>
+                    </div>
+                    <div class="example-card">
+                        <p>"Build me a personal website"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>
+                    <a href="docs/troubleshooting.md">Need help?</a> ·
+                    <a href="docs/examples.md">More examples</a> ·
+                    <a href="https://github.com/JohnSkaX/claude-code-for-everyone">GitHub</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showOS(os) {
+            document.querySelectorAll('.os-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`.os-tab:${os === 'mac' ? 'first-child' : 'last-child'}`).classList.add('active');
+            document.getElementById('mac-command').style.display = os === 'mac' ? 'block' : 'none';
+            document.getElementById('windows-command').style.display = os === 'windows' ? 'block' : 'none';
+        }
+
+        function copyCommand(os) {
+            const commands = {
+                mac: "curl -fsSL https://raw.githubusercontent.com/JohnSkaX/claude-code-for-everyone/main/install.sh | bash",
+                windows: "irm https://raw.githubusercontent.com/JohnSkaX/claude-code-for-everyone/main/install.ps1 | iex"
+            };
+
+            navigator.clipboard.writeText(commands[os]).then(() => {
+                const btn = document.querySelector(`#${os}-command .copy-btn`);
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
